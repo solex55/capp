@@ -33,6 +33,8 @@ if(!isset($_SESSION['username'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.png" >
+
 
     <title>TODO APP</title>
 </head>

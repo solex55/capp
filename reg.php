@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" >
+
     <title>REGISTRATION</title>
 </head>
 <body>

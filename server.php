@@ -3,9 +3,12 @@ session_start();
 $username = "";
 $email = "";
 $error = array();
+$msg="";
+$css_alert="";
+
 
 $db = new mysqli("localhost", "root", "", "capp") or die("Could not connect");
-
+$id="";
 if(isset($_POST['register'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $email = mysqli_real_escape_string($db, $_POST['email']);
@@ -73,6 +76,29 @@ if(isset($_GET['logout'])){
   header('location: login.php?logged_out');
 }
 
+if(isset($_POST['save-user'])){
+  $profileImageName = time() . '_' . $_FILES['profileImage']['name'];
+  
+  $target = 'images/' . $profileImageName;
+  if(move_uploaded_file($_FILES['profileImage']['tmp_name'], $target)){
+    $sql = "INSERT INTO imgs (profile_image) VALUES ('$profileImageName')";
+    //if(mysqli_query($db, $sql)){
+      $query = mysqli_query($db, $sql);
+      if($query){
+      $msg = "image upload";
+      $css_alert = "alert-success";
+      header('location:home.php');
+    } else{
+      $msg = "database error";
+      $css_alert = "alert-danger";
+    }
+    
+  }else{
+    $msg = "failed to upload";
+    $css_alert = "alert-danger";
+  }
 
+}
+        
 
 ?>
